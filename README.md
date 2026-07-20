@@ -56,15 +56,15 @@ This project implements a **Generative Adversarial Network (GAN)** that learns t
                   │
                   ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    GENERATOR (G)                             │
+│                    GENERATOR (G)                            │
 │  ┌─────────────────────────────────────────────────────┐    │
 │  │ Input: z (20-dim noise)                             │    │
 │  │                                                     │    │
-│  │ Dense(392, ReLU)  ← 28×28÷2 = 392 hidden units    │    │
+│  │ Dense(392, ReLU)  ← 28×28÷2 = 392 hidden units      │    │
 │  │        ↓                                            │    │
-│  │ Dense(784, Sigmoid) ← 28×28 = 784 output pixels   │    │
+│  │ Dense(784, Sigmoid) ← 28×28 = 784 output pixels     │    │
 │  │        ↓                                            │    │
-│  │ Reshape(28, 28)  ← Output: fake digit image        │    │
+│  │ Reshape(28, 28)  ← Output: fake digit image         │    │
 │  └─────────────────────────────────────────────────────┘    │
 │  • Goal: Fool the Discriminator                             │
 │  • Loss: BinaryCrossentropy(ones, D(G(z)))                  │
@@ -72,18 +72,18 @@ This project implements a **Generative Adversarial Network (GAN)** that learns t
                   │
                   ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    DISCRIMINATOR (D)                         │
+│                    DISCRIMINATOR (D)                        │
 │  ┌─────────────────────────────────────────────────────┐    │
 │  │ Input: x (28×28 image) — real OR fake               │    │
 │  │                                                     │    │
-│  │ Flatten(784)                                       │    │
+│  │ Flatten(784)                                        │    │
 │  │        ↓                                            │    │
-│  │ Dense(392, ReLU)  ← Hidden layer                   │    │
+│  │ Dense(392, ReLU)  ← Hidden layer                    │    │
 │  │        ↓                                            │    │
-│  │ Dense(1)  ← Output: real (1) or fake (0)           │    │
+│  │ Dense(1)  ← Output: real (1) or fake (0)            │    │
 │  └─────────────────────────────────────────────────────┘    │
 │  • Goal: Correctly classify real vs. fake                   │
-│  • Loss: BCE(ones, D(x_real)) + BCE(zeros, D(x_fake))     │
+│  • Loss: BCE(ones, D(x_real)) + BCE(zeros, D(x_fake))       │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -275,11 +275,11 @@ plt.show()
 
 ### Key Observations
 
-- ✅ **Early epochs** — Generator produces random noise
-- ✅ **Mid training** — Digits become recognizable (epochs 500-2000)
-- ✅ **Late training** — High-quality, diverse digits (epochs 5000+)
-- ⚠️ **Mode collapse risk** — Generator may produce limited variety
-- ⚠️ **Training instability** — Loss oscillation is normal in GANs
+- **Early epochs** — Generator produces random noise
+- **Mid training** — Digits become recognizable (epochs 500-2000)
+- **Late training** — High-quality, diverse digits (epochs 5000+)
+- **Mode collapse risk** — Generator may produce limited variety
+- **Training instability** — Loss oscillation is normal in GANs
 
 ### Sample Generated Digits
 
@@ -317,22 +317,22 @@ gan-mnist/
 ## 🎓 Concepts Covered
 
 ### Generative Models
-- ✅ **GAN Architecture** — Generator + Discriminator adversarial setup
-- ✅ **Minimax Game** — Nash equilibrium between G and D
-- ✅ **Latent Space** — 20-dimensional noise vector z
-- ✅ **Mode Collapse** — Common GAN failure mode
+- **GAN Architecture** — Generator + Discriminator adversarial setup
+- **Minimax Game** — Nash equilibrium between G and D
+- **Latent Space** — 20-dimensional noise vector z
+- **Mode Collapse** — Common GAN failure mode
 
 ### Deep Learning
-- ✅ **Custom Training Loop** — `tf.GradientTape` for manual gradients
-- ✅ **Binary Cross Entropy** — Classification loss
-- ✅ **Adam Optimizer** — Adaptive learning rate
-- ✅ **Sigmoid Activation** — Output normalization to [0, 1]
+- **Custom Training Loop** — `tf.GradientTape` for manual gradients
+- **Binary Cross Entropy** — Classification loss
+- **Adam Optimizer** — Adaptive learning rate
+- **Sigmoid Activation** — Output normalization to [0, 1]
 
 ### TensorFlow
-- ✅ **Keras Sequential API** — Model building
-- ✅ **tf.data** — Efficient data pipeline
-- ✅ **GradientTape** — Automatic differentiation
-- ✅ **Eager Execution** — Immediate tensor operations
+- **Keras Sequential API** — Model building
+- **tf.data** — Efficient data pipeline
+- **GradientTape** — Automatic differentiation
+- **Eager Execution** — Immediate tensor operations
 
 ---
 
